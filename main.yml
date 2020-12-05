@@ -258,16 +258,10 @@
 
   tasks:
 
-    - debug:
-        msg: 
-          - "IP is {{ hostvars['appdb1']['ansible_default_ipv4']['address'] }}"
-          - "First App server  {{ groups.app_servers[0] }}" 
-        verbosity: 2        
-
     - name: Smoketest Postgres database
       postgresql_ping:
         db: flask_db
-        login_host: "{{ hostvars['appdb1']['ansible_default_ipv4']['address'] }}"
+        login_host: appdb1
         login_user: flask
         login_password: redhat
         ssl_mode: disable
