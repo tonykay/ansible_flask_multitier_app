@@ -177,14 +177,14 @@
           pip:
             name: "{{ pip_dependencies }}"
             state: latest
-            executable: /usr/bin/pip3
+            executable:  /opt/rh/rh-python36/root/bin/pip3
 
         - name: "Create virtualenv {{ virtualenv_name }} for Flask"
           pip:
             requirements: "{{ flask_home }}/{{ flask_app_name }}/requirements.txt"
             virtualenv: "{{ virtualenv_home }}/{{ flask_app_name }}"
             virtualenv_site_packages: no
-            virtualenv_command: /usr/local/bin/virtualenv
+            virtualenv_command: /opt/rh/rh-python36/root/bin/virtualenv
       tags:
         - venv
         - virtualenv  
